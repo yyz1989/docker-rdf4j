@@ -18,22 +18,3 @@ You can start the docker containter for a quick test with
 ```
 docker run -it --rm -p 8080:8080 yyz1989/rdf4j
 ```
-
-## Environment Variables
-
-The following environment variables are used in the Docker images:
-* `RDF4J_DATA`: the path of RDF4J Server working directory. The default value is `/opt/eclipse-rdf4j-${RDF4J_VERSION}/data`, where `${RDF4J_VERSION}` is version number of RDF4J in the Docker image.
-* `JVM_PARAMS`: additional JVM parameters passed to Tomcat. Please tune this value according to the use case. The default value is `-Xmx4g -XX:MaxPermSize=512m`.
-
-Those two environment variables can be overriden with Docker parameter ```-e```, for example
-```
-docker run -it --rm -p 8080:8080 -e RDF4J_DATA=/data -e JVM_PARAMS="-Xms1g -Xmx8g" yyz1989/rdf4j
-```
-
-## Port
-
-By default only port 8080 for Tomcat is exposed.
-
-## Volume
-
-By default only the path defined with environment variable `RDF4J_DATA` is exposed as mount point to the native host or other containers, since it is used by RDF4J Server to store configurations and persist database. 
