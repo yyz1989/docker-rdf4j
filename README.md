@@ -8,6 +8,10 @@ RDF4J is currently released with two version series 2.x and 1.x, where 2.x is th
 * `2.0.1`, `2`, `latest`: Built with JRE 8 and Tomcat 8.5 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/2/2.0.1/Dockerfile)
 * `1.0.1`, `1`: Built with JRE 7 and Tomcat 8 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/1/1.0.1/Dockerfile)
 
+## License
+
+Eclipse RDF4J is released under [Eclipse Distribution License 1.0 (BSD)](https://projects.eclipse.org/content/eclipse-distribution-license-1.0-bsd).
+
 ## How to start
 
 You can start the docker containter for a quick test with
