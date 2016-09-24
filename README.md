@@ -16,5 +16,13 @@ Eclipse RDF4J is released under [Eclipse Distribution License 1.0 (BSD)](https:/
 
 You can start the docker containter for a quick test with
 ```
-docker run -it --rm -p 8080:8080 yyz1989/rdf4j
+docker run --rm -p 8080:8080 yyz1989/rdf4j
 ```
+
+## Port
+
+By default only port 8080 for Tomcat is exposed.
+
+## Volume
+
+By default only the path `/opt/eclipse-rdf4j-${RDF4J_VERSION}/data` is exposed as mount point to the native host or other containers, since it is used by RDF4J Server to store configurations and persist database. 
