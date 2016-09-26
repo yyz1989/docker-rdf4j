@@ -8,16 +8,19 @@ RDF4J is currently released with two version series 2.x and 1.x, where 2.x is th
 * `2.0.1`, `2`, `latest`: Built with JRE 8 and Tomcat 8.5 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/2/2.0.1/Dockerfile)
 * `1.0.1`, `1`: Built with JRE 7 and Tomcat 8 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/1/1.0.1/Dockerfile)
 
+RDF4J Server and RDF4J Workbench also require a Java Servlet Container that supports Java Servlet API 2.5 and Java Server Pages (JSP) 2.0. In this Docker repository, Tomcat is used as Servlet container in all Docker images.
+
 ## License
 
 Eclipse RDF4J is released under [Eclipse Distribution License 1.0 (BSD)](https://projects.eclipse.org/content/eclipse-distribution-license-1.0-bsd).
 
 ## How to start
 
-You can start the docker containter for a quick test with
+A docker containter can be started for a quick test with
 ```
 docker run --rm -p 8080:8080 yyz1989/rdf4j
 ```
+In this case Tomcat will run in foreground and tail its log, where you can diagnose the status immediately.
 
 ## Port
 
@@ -25,4 +28,19 @@ By default only port 8080 for Tomcat is exposed.
 
 ## Volume
 
-By default only the path `/opt/eclipse-rdf4j-${RDF4J_VERSION}/data` is exposed as mount point to the native host or other containers, since it is used by RDF4J Server to store configurations and persist database. 
+By default only the path `/opt/eclipse-rdf4j-${RDF4J_VERSION}/data` (where `${RDF4J_VERSION}` is the RDF4J release version in the Docker image) is exposed as mount point to the native host or other containers, since it is used by RDF4J Server to store configurations and persist database.
+
+## Environment Variables
+
+The following environment variables are used in the Docker images:
+* `RDF4J_DATA`: the path of RDF4J Server working directory. The default value is `/opt/eclipse-rdf4j-${RDF4J_VERSION}/data`, which is exposed as mount point as aformentioned.
+* `JVM_PARAMS`: additional JVM parameters passed to Tomcat. Please tune this value according to the use case. The default value is `-Xmx4g`.
+
+Those two environment variables can be overriden with Docker parameter ```-e```, for example
+```
+docker run -d --rm -p 8080:8080 -e RDF4J_DATA=/data -e JVM_PARAMS="-Xms1g -Xmx8g" yyz1989/rdf4j
+```
+changes the JVM minimum and maximum heap size to 1 GB and 8 GB respectively, and RDF4J Server working directory to `/data`. A host directory can also be mounted into the container to persist data in production environment with
+```
+docker run -d --rm -p 8080:8080 -e RDF4J_DATA=/data -v /opt/rdf4j-data:/data -e JVM_PARAMS="-Xms1g -Xmx8g" yyz1989/rdf4j
+```
