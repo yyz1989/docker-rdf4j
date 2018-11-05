@@ -1,4 +1,4 @@
-FROM tomcat:9
+FROM tomcat:8.5
 
 MAINTAINER YANG Yuanzhe "yyz1989@hotmail.com"
 
