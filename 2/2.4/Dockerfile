@@ -2,7 +2,7 @@ FROM tomcat:8.5
 
 MAINTAINER YANG Yuanzhe "yyz1989@hotmail.com"
 
-ENV RDF4J_VERSION="2.4.2" 
+ENV RDF4J_VERSION="2.4.6" 
 ENV RDF4J_DATA="/opt/eclipse-rdf4j-${RDF4J_VERSION}/data" 
 ENV JVM_PARAMS="-Xmx4g" 
 
