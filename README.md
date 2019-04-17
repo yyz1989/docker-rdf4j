@@ -5,7 +5,8 @@
 This is the Docker repository for RDF4J Server (which is RDF database server and the SPARQL endpoint service) and RDF4J Workbench (which is the Web UI of RDF4J Server for database and data management tasks). Eclipse RDF4J is the official successor to the OpenRDF Sesame framework. For more information about RDF4J, please refer to [Eclipse RDF4J Official Website](http://rdf4j.org/).
 
 RDF4J is currently released with two version series 2.x and 1.x, where 2.x is the successor of Sesame 4.1 requiring Java 8 Runtime Environment and 1.x is the corresponding Java 7 backport. Accordingly, this Docker repository also includes both versions, with supported tags and Dockerfiles listed as follows:
-* `2.4.4`, `2.4`, `2`, `latest`: Built with JRE 8 and Tomcat 8.5 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/2/2.4/2.4.4/Dockerfile)
+* `2.5.1`, `2.5`, `2`, `latest`: Built with JRE 8 and Tomcat 8.5 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/2/Dockerfile)
+* `2.4.6`, `2.4`: Built with JRE 8 and Tomcat 8.5 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/2/2.4/Dockerfile)
 * `2.3.3`, `2.3`: Built with JRE 8 and Tomcat 8.5 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/2/2.3.3/Dockerfile)
 * `2.2.4`, `2.2`: Built with JRE 8 and Tomcat 8.5 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/2/2.2.4/Dockerfile)
 * `2.1.6`, `2.1`: Built with JRE 8 and Tomcat 8.5 [Dockerfile](https://github.com/yyz1989/docker-rdf4j/blob/master/2/2.1.6/Dockerfile)
